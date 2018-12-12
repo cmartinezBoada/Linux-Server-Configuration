@@ -28,7 +28,8 @@ This project consists in taking a baseline installation of a Linux server and pr
     `$ ssh-keygen choosing the grader_key name.`
   Print the public key ``` $ cat grader_key.pub.```
   Select the public key and copy it.
-  - Create a new directory called .ssh ```$ mkdir .ssh on your virtual machine.```
+  - Create a new directory called .ssnable
+  h ```$ mkdir .ssh on your virtual machine.```
   - Paste the public key grader_key.pub to authorized_keys, and change the permissions:
   ```$ sudo chmod 700 /home/grader/.ssh.```
   ```$ sudo chmod 644 /home/grader/.ssh/authorized_keys.```
@@ -119,7 +120,6 @@ Add the following content:
 
 
 Enable the new virtual host:
-
 ```$ sudo a2ensite catalog
 ```
 Create and configure the .wsgi File
