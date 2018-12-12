@@ -119,11 +119,8 @@ Add the following content:
 ```
 
 
-Enable the new virtual host:
-```$ sudo a2ensite catalog
-```
+Enable the new virtual host:```$ sudo a2ensite catalog```
 Create and configure the .wsgi File
-
 ```$ cd /var/www/catalog/
    $ sudo nano catalog.wsgi
    ```
