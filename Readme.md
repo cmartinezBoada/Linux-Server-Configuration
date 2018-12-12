@@ -75,23 +75,26 @@ This project consists in taking a baseline installation of a Linux server and pr
     $ sudo chown -R grader:grader catalog
     $ cd catalog
  ```
-    Change user to grader and git clone the repository: ```git clone https://github.com/cmartinezBoada/Build-an-item-catalog-application.git
+ Change user to grader and git clone the repository: 
+    ```git clone https://github.com/cmartinezBoada/Build-an-item-catalog-application.git
     ```
-  - To make .git directory is not publicly accessible via a browser, create a .htaccess file in the .git folder and put the following in this file: RedirectMatch 404 /\.git
+ To make .git directory is not publicly accessible via a browser, create a .htaccess file in the .git folder and put the following in this file: RedirectMatch 404 /\.git
  
  #### Install pip , virtualenv (in /var/www/catalog)
-    1. $ sudo apt-get install python-pip
-    2. $ sudo pip install virtualenv
-    3. $ sudo virtualenv venv
-    4. $ source venv/bin/activate
-    5. $ sudo chmod -R 777 venv
+ ```$ sudo apt-get install python-pip
+    $ sudo ``` install virtualenv
+    $ sudo virtualenv venv
+    $ source venv/bin/activate
+    $ sudo chmod -R 777 venv
+  ```
     
 #### Install Flask, sqalchemy, requests, oath2client and other dependencies:
-    1. $ sudo pip install Flask
-    2. $ sudo pip install sqlalchemy
-    3. $ sudo pip install requests
-    4. $ sudo pip install --upgrade oath2client
-  - Install Python's PostgreSQL adapter psycopg2: $ sudo apt-get install python-psycopg2
+ ```$ sudo pip install Flask
+    $ sudo pip install sqlalchemy
+    $ sudo pip install requests
+    $ sudo pip install --upgrade oath2client```
+ ```
+ ```Install Python's PostgreSQL adapter psycopg2: $ sudo apt-get install python-psycopg2
 
 #### Configure and Enable a New Virtual Host: $ sudo nano /etc/apache2/sites-available/catalog.conf
     Add the following content:
