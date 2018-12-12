@@ -21,14 +21,14 @@ This project consists in taking a baseline installation of a Linux server and pr
   - The public IP is 35.180.215.126
   - Download the private key LightsailDefaultKeyPair.pem from AWS and rename it as Lightsail_key.rsa
 #### User, SSH and Security Configurations
-  - Log into the remote VM as root user (ubuntu) through ssh: $ ssh -i Lightsail_key.rsa ubuntu@35.180.215.126
-  - Create a new user grader: $ sudo adduser grader.
-  - Grant udacity the permission to sudo, by adding a new file under the sudoers directory: $ sudo nano /etc/sudoers.d/grader. In the file put in: grader ALL=(ALL:ALL) ALL, then save and quit.
+  - Log into the remote VM as root user (ubuntu) through ssh: ```$ ssh -i Lightsail_key.rsa ubuntu@35.180.215.126```
+  - Create a new user grader: ```$ sudo adduser grader.```
+  - Grant udacity the permission to sudo, by adding a new file under the sudoers directory: ```$ sudo nano /etc/sudoers.d/grader.``` In the file put in:``` grader ALL=(ALL:ALL) ALL```, then save and quit.
   - Generate a new key pair by entering the following command at the terminal of your local machine.
-  1. $ ssh-keygen choosing the grader_key name.
-  2. Print the public key $ cat grader_key.pub.
-  3. Select the public key and copy it.
-  4. Create a new directory called .ssh $ mkdir .ssh on your virtual machine.
+  ```$ ssh-keygen choosing the grader_key name.```
+  Print the public key ``` $ cat grader_key.pub.```
+  Select the public key and copy it.
+  4. Create a new directory called .ssh ```$ mkdir .ssh on your virtual machine.```
   - Paste the public key grader_key.pub to authorized_keys, and change the permissions:
   1. $ sudo chmod 700 /home/grader/.ssh.
   2. $ sudo chmod 644 /home/grader/.ssh/authorized_keys.
