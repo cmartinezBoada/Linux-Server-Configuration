@@ -25,7 +25,7 @@ This project consists in taking a baseline installation of a Linux server and pr
   - Create a new user grader: ```$ sudo adduser grader.```
   - Grant udacity the permission to sudo, by adding a new file under the sudoers directory: ```$ sudo nano /etc/sudoers.d/grader.``` In the file put in:``` grader ALL=(ALL:ALL) ALL```, then save and quit.
   - Generate a new key pair by entering the following command at the terminal of your local machine.
-  ```$ ssh-keygen choosing the grader_key name.```
+    `$ ssh-keygen choosing the grader_key name.`
   Print the public key ``` $ cat grader_key.pub.```
   Select the public key and copy it.
   - Create a new directory called .ssh ```$ mkdir .ssh on your virtual machine.```
