@@ -185,5 +185,5 @@ Rename app.py to __init__.py
 #### Visit site at [http://35.180.215.126](http://35.180.215.126)
 
 ### Resources: 
-https://stackoverflow.com
-https://www.google.com
+
+<https://stackoverflow.com>
