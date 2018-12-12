@@ -58,22 +58,23 @@ This project consists in taking a baseline installation of a Linux server and pr
   $ sudo ufw allow 2200/tcp.
   $ sudo ufw allow 80/tcp.
   $ sudo ufw allow 123/udp.
-  $ sudo ufw enable.```
+  $ sudo ufw enable.
+  ```
   Add 3 rules above as Security Group inbound rules of AWS Lightsail instance
 
 #### Install Apache, mod_wsgi and Git
-  ```$ sudo apt-get install apache2.
-    Install mod_wsgi with the following command: $ sudo apt-get install libapache2-mod-wsgi python-dev.```
-    Enable mod_wsgi:``` $ sudo a2enmod wsgi.```
-``` $ sudo service apache2 start.```
- ```$ sudo apt-get install git.```
+ ```$ sudo apt-get install apache2.```
+    Install mod_wsgi with the following command: ```$ sudo apt-get install libapache2-mod-wsgi python-dev.```
+    Enable mod_wsgi:``` $ sudo a2enmod wsgi.
+    $ sudo service apache2 start.
+    $ sudo apt-get install git.```
 
 ####  Configure Apache to serve a Python mod_wsgi application. Clone the item-catalog app from Github
-    1. $ cd /var/www 
-    2. $ sudo mkdir catalog $ 
-    3. $ sudo chown -R grader:grader catalog
-    2. $ cd catalog
-    3. $ change user to grader and git clone the repository: git clone https://github.com/cmartinezBoada/Build-an-item-catalog-application.git
+ ```$ cd /var/www 
+    $ sudo mkdir catalog $ 
+    $ sudo chown -R grader:grader catalog
+    $ cd catalog```
+    Change user to grader and git clone the repository: ```git clone https://github.com/cmartinezBoada/Build-an-item-catalog-application.git```
   - To make .git directory is not publicly accessible via a browser, create a .htaccess file in the .git folder and put the following in this file: RedirectMatch 404 /\.git
  
  #### Install pip , virtualenv (in /var/www/catalog)
