@@ -28,18 +28,18 @@ This project consists in taking a baseline installation of a Linux server and pr
   ```$ ssh-keygen choosing the grader_key name.```
   Print the public key ``` $ cat grader_key.pub.```
   Select the public key and copy it.
-  4. Create a new directory called .ssh ```$ mkdir .ssh on your virtual machine.```
+  - Create a new directory called .ssh ```$ mkdir .ssh on your virtual machine.```
   - Paste the public key grader_key.pub to authorized_keys, and change the permissions:
-  1. $ sudo chmod 700 /home/grader/.ssh.
-  2. $ sudo chmod 644 /home/grader/.ssh/authorized_keys.
-  3. Change the owner from ubuntu to grader: $ sudo chown -R grader:grader /home/grader/.ssh
+  ```$ sudo chmod 700 /home/grader/.ssh.```
+  ```$ sudo chmod 644 /home/grader/.ssh/authorized_keys.```
+  - Change the owner from ubuntu to grader: ```$ sudo chown -R grader:grader /home/grader/.ssh```
   - Enforce key-based authentication, change SSH port to 2200 and disable remote login of root user:
-  1. $ sudo nano /etc/ssh/sshd_config
-  2. Change PasswordAuthentication to no.
-  3. Change Port to 2200.
-  4. Change PermitRootLogin to no
-  5. $ sudo service ssh restart.
-  6. In AWS Lightsail Networking, add 2200 as the inbound custom TCP Rule port.
+  ```$ sudo nano /etc/ssh/sshd_config```
+  - Change PasswordAuthentication to no.
+  - Change Port to 2200.
+  - Change PermitRootLogin to no
+  ```$ sudo service ssh restart.```
+  - In AWS Lightsail Networking, add 2200 as the inbound custom TCP Rule port.
 
 
 #### Configure the local timezone to UTC
