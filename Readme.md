@@ -43,8 +43,8 @@ This project consists in taking a baseline installation of a Linux server and pr
 
 
 #### Configure the local timezone to UTC
-  - Open time configuration and set it to UTC: $ sudo dpkg-reconfigure tzdata.
-  - Install ntp daemon ntpd for a better synchronization of the server's time over the network connection: $ sudo apt-get install ntp.
+  - Open time configuration and set it to UTC: ```$ sudo dpkg-reconfigure tzdata.```
+  - Install ntp daemon ntpd for a better synchronization of the server's time over the network connection:``` $ sudo apt-get install ntp.```
 
 #### Update all currently installed packages
   - $ sudo apt-get update.
@@ -92,7 +92,7 @@ This project consists in taking a baseline installation of a Linux server and pr
 
 #### Configure and Enable a New Virtual Host: $ sudo nano /etc/apache2/sites-available/catalog.conf
     Add the following content:
-<VirtualHost *:80>
+```<VirtualHost *:80>
  ServerName 35.180.215.126
  ServerAdmin grader@35.180.215.126
  WSGIScriptAlias / /var/www/catalog/catalog.wsgi
@@ -108,7 +108,7 @@ This project consists in taking a baseline installation of a Linux server and pr
  ErrorLog ${APACHE_LOG_DIR}/error.log
  LogLevel warn
  CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
+</VirtualHost>```
 
 
 Enable the new virtual host:
