@@ -68,27 +68,29 @@ This project consists in taking a baseline installation of a Linux server and pr
   - $ sudo service apache2 start.
   - $ sudo apt-get install git.
 
-####  Configure Apache to serve a Python mod_wsgi application
-  - Clone the item-catalog app from Github
+####  Configure Apache to serve a Python mod_wsgi application. Clone the item-catalog app from Github
     1. $ cd /var/www 
     2. $ sudo mkdir catalog $ 
     3. $ sudo chown -R grader:grader catalog
     2. $ cd catalog
     3. $ change user to grader and git clone the repository: git clone https://github.com/cmartinezBoada/Build-an-item-catalog-application.git
   - To make .git directory is not publicly accessible via a browser, create a .htaccess file in the .git folder and put the following in this file: RedirectMatch 404 /\.git
-  - Install pip , virtualenv (in /var/www/catalog)
+ 
+ #### Install pip , virtualenv (in /var/www/catalog)
     1. $ sudo apt-get install python-pip
     2. $ sudo pip install virtualenv
     3. $ sudo virtualenv venv
     4. $ source venv/bin/activate
     5. $ sudo chmod -R 777 venv
-  - Install Flask, sqalchemy, requests, oath2client and other dependencies:
+    
+#### Install Flask, sqalchemy, requests, oath2client and other dependencies:
     1. $ sudo pip install Flask
     2. $ sudo pip install sqlalchemy
     3. $ sudo pip install requests
     4. $ sudo pip install --upgrade oath2client
   - Install Python's PostgreSQL adapter psycopg2: $ sudo apt-get install python-psycopg2
-  - Configure and Enable a New Virtual Host: $ sudo nano /etc/apache2/sites-available/catalog.conf
+
+#### Configure and Enable a New Virtual Host: $ sudo nano /etc/apache2/sites-available/catalog.conf
     Add the following content:
 <VirtualHost *:80>
  ServerName 35.180.215.126
@@ -131,23 +133,7 @@ Update the absolute path of client_secrets.json in __init__.py
 Add app.secret_key for the Flask app in __init__.py
 Add the code to create a dummy user in db_seed.py
 
-#### Install Apache
-  - `sudo apt-get install apache2`
-
-#### Install mod_wsgi
-  - Run `sudo apt-get install libapache2-mod-wsgi python-dev`
-  - Enable mod_wsgi with `sudo a2enmod wsgi`
-  - Start the web server with `sudo service apache2 start`
-
-
-#### Clone the Catalog app from Github
-  - Install git using: `sudo apt-get install git`
-  - `cd /var/www`
-  - `sudo mkdir catalog`
-  - Change owner of the newly created catalog folder `sudo chown -R grader:grader catalog`
-  - `cd /catalog`
-  - Clone your project from github `git clone https://github.com/rrjoson/udacity-item-catalog.git catalog`
-  - Create a catalog.wsgi file, then add this inside:
+#### Create a catalog.wsgi file in /var/www/catalog, then add this inside:
   ```
   import sys
   import logging
@@ -159,16 +145,6 @@ Add the code to create a dummy user in db_seed.py
   ```
   - Rename application.py to __init__.py `mv application.py __init__.py`
 
-#### Install virtual environment
-  - Install the virtual environment `sudo pip install virtualenv`
-  - Create a new virtual environment with `sudo virtualenv venv`
-  - Activate the virutal environment `source venv/bin/activate`
-  - Change permissions `sudo chmod -R 777 venv`
-
-#### Install Flask and other dependencies
-  - Install pip with `sudo apt-get install python-pip`
-  - Install Flask `pip install Flask`
-  - Install other project dependencies `sudo pip install httplib2 oauth2client sqlalchemy psycopg2 sqlalchemy_utils`
 
 #### Update path of client_secrets.json file
   - `nano __init__.py`
@@ -201,6 +177,5 @@ Add the code to create a dummy user in db_seed.py
 #### Restart Apache
   - `sudo service apache2 restart`
 
-#### Visit site at [http://35.167.27.204](http://35.167.27.204)
+#### Visit site at [http://35.180.215.126](http://35.180.215.126)
 
-**Special Thanks to *[iliketomatoes](https://github.com/iliketomatoes)* for a very helpful README**
