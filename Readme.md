@@ -82,7 +82,7 @@ This project consists in taking a baseline installation of a Linux server and pr
  
  #### Install pip , virtualenv (in /var/www/catalog)
  ```$ sudo apt-get install python-pip
-    $ sudo ``` install virtualenv
+    $ sudo install virtualenv
     $ sudo virtualenv venv
     $ source venv/bin/activate
     $ sudo chmod -R 777 venv
@@ -92,12 +92,12 @@ This project consists in taking a baseline installation of a Linux server and pr
  ```$ sudo pip install Flask
     $ sudo pip install sqlalchemy
     $ sudo pip install requests
-    $ sudo pip install --upgrade oath2client```
+    $ sudo pip install --upgrade oath2client
  ```
- ```Install Python's PostgreSQL adapter psycopg2: $ sudo apt-get install python-psycopg2
+ Install Python's PostgreSQL adapter psycopg2: $ sudo apt-get install python-psycopg2
 
 #### Configure and Enable a New Virtual Host: $ sudo nano /etc/apache2/sites-available/catalog.conf
-    Add the following content:
+Add the following content:
 ```<VirtualHost *:80>
  ServerName 35.180.215.126
  ServerAdmin grader@35.180.215.126
@@ -114,30 +114,31 @@ This project consists in taking a baseline installation of a Linux server and pr
  ErrorLog ${APACHE_LOG_DIR}/error.log
  LogLevel warn
  CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>```
+</VirtualHost>
+```
 
 
 Enable the new virtual host:
 
-$ sudo a2ensite catalog
+```$ sudo a2ensite catalog
+```
 Create and configure the .wsgi File
 
-$ cd /var/www/catalog/
-$ sudo nano catalog.wsgi
+```$ cd /var/www/catalog/
+   $ sudo nano catalog.wsgi
+   ```
 Add the following content:
 
-import sys
-import logging
-logging.basicConfig(stream=sys.stderr)
-sys.path.insert(0, "/var/www/catalog/")
+```import sys
+   import logging
+   logging.basicConfig(stream=sys.stderr)
+   sys.path.insert(0, "/var/www/catalog/")
 
-from catalog import app as application
-application.secret_key = 'secret'
-The original NHL Teams app that were developed on local machine needs some tweaks in order to be deployed on AWS. The major modifications include:
+   from catalog import app as application
+   application.secret_key = 'secret'
+```
+You need to add the major modifications include:
 Rename app.py to __init__.py
-Update the absolute path of client_secrets.json in __init__.py
-Add app.secret_key for the Flask app in __init__.py
-Add the code to create a dummy user in db_seed.py
 
 #### Create a catalog.wsgi file in /var/www/catalog, then add this inside:
   ```
@@ -149,8 +150,6 @@ Add the code to create a dummy user in db_seed.py
   from catalog import app as application
   application.secret_key = 'supersecretkey'
   ```
-  - Rename application.py to __init__.py `mv application.py __init__.py`
-
 
 #### Update path of client_secrets.json file
   - `nano __init__.py`
