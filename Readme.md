@@ -73,8 +73,10 @@ This project consists in taking a baseline installation of a Linux server and pr
  ```$ cd /var/www 
     $ sudo mkdir catalog $ 
     $ sudo chown -R grader:grader catalog
-    $ cd catalog```
-    Change user to grader and git clone the repository: ```git clone https://github.com/cmartinezBoada/Build-an-item-catalog-application.git```
+    $ cd catalog
+ ```
+    Change user to grader and git clone the repository: ```git clone https://github.com/cmartinezBoada/Build-an-item-catalog-application.git
+    ```
   - To make .git directory is not publicly accessible via a browser, create a .htaccess file in the .git folder and put the following in this file: RedirectMatch 404 /\.git
  
  #### Install pip , virtualenv (in /var/www/catalog)
