@@ -5,11 +5,11 @@ This project consists in taking a baseline installation of a Linux server and pr
 
 ### Server/App Info:
 
-- IP address: 52.47.136.220
+- IP address: 35.180.215.126
 
 - Accessible SSH port: 2200
 
-- Application URL: http://52.47.136.220/
+- Application URL: http://35.180.215.126
 
 - Username and password for Udacity reviewer: grader student
 
@@ -18,15 +18,15 @@ This project consists in taking a baseline installation of a Linux server and pr
 1. Launching an AWS Lightsail Instance and connect to it via SSH
   - Launching an AWS Lightsail instance
   - The instance's security group provides a SSH port 22 by default
-  - The public IP is 52.91.21.75
+  - The public IP is 35.180.215.126
   - Download the private key LightsailDefaultKeyPair.pem from AWS and rename it as Lightsail_key.rsa
 2. User, SSH and Security Configurations
-  - Log into the remote VM as root user (ubuntu) through ssh: $ ssh -i ~/.ssh/Lightsail_key.rsa ubuntu@52.47.136.220
+  - Log into the remote VM as root user (ubuntu) through ssh: $ ssh -i Lightsail_key.rsa ubuntu@35.180.215.126
   - Create a new user grader: $ sudo adduser grader.
   - Grant udacity the permission to sudo, by adding a new file under the sudoers directory: $ sudo nano /etc/sudoers.d/grader. In the file put in: grader ALL=(ALL:ALL) ALL, then save and quit.
   - Generate a new key pair by entering the following command at the terminal of your local machine.
   1. $ ssh-keygen choosing the grader_key name.
-  2. Print the public key $ cat ~/.ssh/grader_key.pub.
+  2. Print the public key $ cat grader_key.pub.
   3. Select the public key and copy it.
   4. Create a new directory called .ssh $ mkdir .ssh on your virtual machine.
   - Paste the public key grader_key.pub to authorized_keys, and change the permissions:
@@ -70,7 +70,9 @@ This project consists in taking a baseline installation of a Linux server and pr
 
 7.  Configure Apache to serve a Python mod_wsgi application
   - Clone the item-catalog app from Github
-    1. $ cd /var/www $ sudo mkdir catalog $ sudo chown -R grader:grader catalog
+    1. $ cd /var/www 
+    2. $ sudo mkdir catalog $ 
+    3. $ sudo chown -R grader:grader catalog
     2. $ cd catalog
     3. $ change user to grader and git clone the repository: git clone https://github.com/cmartinezBoada/Build-an-item-catalog-application.git
   - To make .git directory is not publicly accessible via a browser, create a .htaccess file in the .git folder and put the following in this file: RedirectMatch 404 /\.git
@@ -86,9 +88,8 @@ This project consists in taking a baseline installation of a Linux server and pr
     3. $ sudo pip install requests
     4. $ sudo pip install --upgrade oath2client
   - Install Python's PostgreSQL adapter psycopg2: $ sudo apt-get install python-psycopg2
-  - Configure and Enable a New Virtual Host:
-$ sudo nano /etc/apache2/sites-available/catalog.conf
-Add the following content:
+  - Configure and Enable a New Virtual Host: $ sudo nano /etc/apache2/sites-available/catalog.conf
+    Add the following content:
 <VirtualHost *:80>
  ServerName 35.180.215.126
  ServerAdmin grader@35.180.215.126
