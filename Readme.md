@@ -52,21 +52,21 @@ This project consists in taking a baseline installation of a Linux server and pr
 
 #### Configure the Uncomplicated Firewall (UFW)
   Project requirements need the server to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123).
-
-  - $ sudo ufw default deny incoming.
-  - $ sudo ufw default allow outgoing.
-  - $ sudo ufw allow 2200/tcp.
-  - $ sudo ufw allow 80/tcp.
-  - $ sudo ufw allow 123/udp.
-  - $ sudo ufw enable.
+```
+  $ sudo ufw default deny incoming.
+  $ sudo ufw default allow outgoing.
+  $ sudo ufw allow 2200/tcp.
+  $ sudo ufw allow 80/tcp.
+  $ sudo ufw allow 123/udp.
+  $ sudo ufw enable.```
   Add 3 rules above as Security Group inbound rules of AWS Lightsail instance
 
 #### Install Apache, mod_wsgi and Git
-  - $ sudo apt-get install apache2.
-  - Install mod_wsgi with the following command: $ sudo apt-get install libapache2-mod-wsgi python-dev.
-  - Enable mod_wsgi: $ sudo a2enmod wsgi.
-  - $ sudo service apache2 start.
-  - $ sudo apt-get install git.
+  ```$ sudo apt-get install apache2.
+    Install mod_wsgi with the following command: $ sudo apt-get install libapache2-mod-wsgi python-dev.```
+    Enable mod_wsgi:``` $ sudo a2enmod wsgi.```
+``` $ sudo service apache2 start.```
+ ```$ sudo apt-get install git.```
 
 ####  Configure Apache to serve a Python mod_wsgi application. Clone the item-catalog app from Github
     1. $ cd /var/www 
