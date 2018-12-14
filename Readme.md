@@ -48,9 +48,11 @@ This project consists in taking a baseline installation of a Linux server and pr
   - Install ntp daemon ntpd for a better synchronization of the server's time over the network connection:``` $ sudo apt-get install ntp.```
 
 #### Update all currently installed packages
-  - $ sudo apt-get update.
-  - $ sudo apt-get upgrade.
-
+ ``` 
+   $ sudo apt-get update.
+   $ sudo apt-get dist-upgrade.
+ ``` 
+  Note:with apt-get upggrade you don't install new pacakages so it's better to use: apt-get dist-upgrade which allows you to install new packages when needed (ie, a new kernel version); 
 #### Configure the Uncomplicated Firewall (UFW)
   Project requirements need the server to only allow incoming connections for SSH (port 2200), HTTP (port 80), and NTP (port 123).
 ```
